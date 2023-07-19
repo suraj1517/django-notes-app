@@ -23,7 +23,7 @@ pipeline {
                 {
                      
                      sh("curl -u ${dockerHubUser}:${dockerHubPass} https://hub.docker.com/")
-                     sh "docker push my-note-app:latest"
+                     sh "docker push {credentialsId:"dockerHub"}my-note-app:latest"
                      
                 }
             }
