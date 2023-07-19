@@ -21,8 +21,7 @@ pipeline {
                 echo "Pushing the image to docker hub"
                 withCredentials([usernamePassword(credentialsId:"dockerHub",passwordVariable:"dockerHubPass",usernameVariable:"dockerHubUser")])
                 {
-                sh "docker login -u ${env.dockerHubUser} -p ${env.dockerHubPass}"
-              
+                    sh("curl -u ${dockerHubUser}:${dockerHubPass} https://hub.docker.com/")
                 }
             }
         }
